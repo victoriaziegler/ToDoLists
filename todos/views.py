@@ -1,6 +1,6 @@
 # from django.shortcuts import render
 
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from todos.models import TodoList
 
@@ -10,4 +10,8 @@ from todos.models import TodoList
 class TodoListView(ListView):
     model = TodoList
     template_name = "todos/list.html"
-    
+
+
+class TodoDetailView(DetailView):
+    model = TodoList
+    template_name = "todos/detail.html"

@@ -1,21 +1,20 @@
 {% block content %}
 <main>
     <div>
-        <h1>My Lists</h1>
+        <h1>{{ todolist.name }}</h1>
+        <h2>Tasks</h2>
         <table>
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Number of Items</th>
+                    <th>Due Date</th>
                 </tr>
             </thead>
             <tbody>
-                {% for list in todolist_list %}
+                {% for item in todolist.items.all %}
                 <tr>
-                    <td>
-                        <a href="{% url 'show_todolist' list.id %}">{{ list.name }}</a>
-                    </td>
-                    <td>{{ list.items.all|length }}</td>
+                    <td>{{ item.task }}</td>
+                    <td>{{ item.due_date|date:"M d, Y" }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

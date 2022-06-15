@@ -13,7 +13,7 @@ class TodoList(models.Model):
 
 class TodoItem(models.Model):
     task = models.CharField(max_length=100)
-    due_date = models.DateTimeField(null=True)
+    due_date = models.DateTimeField(null=True, blank=True)
     is_completed = models.BooleanField(default=False)
     list = models.ForeignKey(
         "TodoList",
@@ -22,5 +22,4 @@ class TodoItem(models.Model):
     )
 
     def __str__(self):
-        task = str(self.task)
-        return task
+        return self.task
