@@ -3,10 +3,11 @@
 {% block content %}
 <main>
     <div>
-        <h1>Are you sure?</h1>
+        <h1>Create a new item</h1>
         <form method="post">
             {% csrf_token %}
-            <button>Delete</button>
+            {{ form.as_p }}
+            <button>Create</button>
         </form>
     </div>
 </main>
